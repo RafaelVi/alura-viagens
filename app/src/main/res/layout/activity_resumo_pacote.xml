@@ -72,12 +72,12 @@
         app:layout_constraintEnd_toEndOf="@+id/resumo_pacote_preco" />
 
     <Button
-        android:id="@+id/pagamento"
+        android:id="@+id/botao_pagamento_resumo_compra"
         android:layout_width="0dp"
-        android:maxWidth="320dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="@drawable/botao_redondo_laranja"
+        android:maxWidth="320dp"
         android:text="@string/realizar_pagamento"
         android:textColor="#4E342E"
         app:layout_constraintBottom_toBottomOf="parent"
