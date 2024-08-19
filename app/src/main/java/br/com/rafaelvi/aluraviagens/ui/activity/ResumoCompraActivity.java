@@ -1,5 +1,8 @@
 package br.com.rafaelvi.aluraviagens.ui.activity;
 
+import static br.com.rafaelvi.aluraviagens.ui.activity.PacoteAcitivityConstantes.CHAVE_PACOTE;
+
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -23,20 +26,27 @@ public class ResumoCompraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_compra);
-
         setTitle(TITLE);
+        inicializaCampos();
+    }
 
-        Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"));
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, ListaPacotesActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 
-        mostraBanner(pacoteSaoPaulo.getImagem());
-
-        mostraLocal(pacoteSaoPaulo.getLocal());
-
-        mostraData(pacoteSaoPaulo.getDias());
-
-        mostraPreco(pacoteSaoPaulo.getPreco());
-
-
+    private void inicializaCampos() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(CHAVE_PACOTE)) {
+            Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_PACOTE);
+            mostraBanner(pacote.getImagem());
+            mostraLocal(pacote.getLocal());
+            mostraData(pacote.getDias());
+            mostraPreco(pacote.getPreco());
+        }
     }
 
     private void mostraBanner(String drawable) {
