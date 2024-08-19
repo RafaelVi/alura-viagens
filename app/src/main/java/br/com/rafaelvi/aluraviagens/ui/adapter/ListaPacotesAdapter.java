@@ -9,10 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.List;
-import java.util.Locale;
 
 import br.com.rafaelvi.aluraviagens.R;
 import br.com.rafaelvi.aluraviagens.model.Pacote;
